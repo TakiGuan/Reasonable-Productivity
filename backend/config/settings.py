@@ -54,6 +54,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+AUTH_USER_MODEL = "users.User"
+
 ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
@@ -123,3 +125,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
+
+MEDIA_ROOT = "media"
+MEDIA_URL = "/media/"
