@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     # User Apps
     "apps.tasks",
     "apps.users",
+    "apps.lists",
+    "apps.utils",
 ]
 
 MIDDLEWARE = [
