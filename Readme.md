@@ -4,7 +4,7 @@
  * @Author: Taki Guan
  * @Date: 2021-02-04 09:35:52
  * @LastEditors: Taki Guan
- * @LastEditTime: 2021-02-04 20:32:51
+ * @LastEditTime: 2021-02-05 13:51:59
 -->
 
 # Reasonable Productivity
@@ -15,7 +15,9 @@ It's a task management system.
 
 ## Quick Start
 
-You should install `Django` and `Django REST Framwork` yourself.
+### Start Backend Application
+
+You should install `Django`, `Django REST Framwork` and `drf-nested-routers` yourself.
 
 ```
 $ cd backend
@@ -60,5 +62,12 @@ Go to `127.0.0.1:8000` to check.
 - user (Foreign Key to User)
 - name
 - description
+- created_at
+- updated_at
+
+**ListItem**
+
+- list
+- text
 - created_at
 - updated_at
