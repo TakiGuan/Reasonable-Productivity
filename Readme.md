@@ -4,7 +4,7 @@
  * @Author: Taki Guan
  * @Date: 2021-02-04 09:35:52
  * @LastEditors: Taki Guan
- * @LastEditTime: 2021-02-05 13:51:59
+ * @LastEditTime: 2021-02-06 23:11:50
 -->
 
 # Reasonable Productivity
@@ -71,3 +71,5 @@ Go to `127.0.0.1:8000` to check.
 - text
 - created_at
 - updated_at
+
+## Frontend
