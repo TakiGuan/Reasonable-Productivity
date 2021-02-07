@@ -4,13 +4,13 @@ Version: 1
 Author: Taki Guan
 Date: 2021-02-03 22:22:15
 LastEditors: Taki Guan
-LastEditTime: 2021-02-04 22:59:39
+LastEditTime: 2021-02-07 16:01:17
 """
-from rest_framework.serializers import HyperlinkedModelSerializer
+from rest_framework.serializers import ModelSerializer
 from .models import Task
 
 
-class TaskSerializer(HyperlinkedModelSerializer):
+class TaskSerializer(ModelSerializer):
     class Meta:
         model = Task
         fields = "__all__"
