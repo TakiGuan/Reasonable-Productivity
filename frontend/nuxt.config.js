@@ -4,7 +4,7 @@
  * @Author: Taki Guan
  * @Date: 2021-02-06 14:21:21
  * @LastEditors: Taki Guan
- * @LastEditTime: 2021-02-07 13:48:26
+ * @LastEditTime: 2021-02-08 15:41:50
  */
 import colors from 'vuetify/es5/util/colors'
 
@@ -14,8 +14,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - frontend',
-    title: 'frontend',
+    titleTemplate: '%s - Productivity',
+    title: 'Reasonable',
     htmlAttrs: {
       lang: 'en',
     },
