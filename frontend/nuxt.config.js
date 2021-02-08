@@ -4,7 +4,7 @@
  * @Author: Taki Guan
  * @Date: 2021-02-06 14:21:21
  * @LastEditors: Taki Guan
- * @LastEditTime: 2021-02-06 21:59:03
+ * @LastEditTime: 2021-02-07 13:48:26
  */
 import colors from 'vuetify/es5/util/colors'
 
@@ -45,7 +45,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/axios'],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {

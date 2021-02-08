@@ -4,7 +4,7 @@
  * @Author: Taki Guan
  * @Date: 2021-02-04 09:35:52
  * @LastEditors: Taki Guan
- * @LastEditTime: 2021-02-06 23:11:50
+ * @LastEditTime: 2021-02-07 14:10:53
 -->
 
 # Reasonable Productivity
@@ -17,7 +17,7 @@ It's a task management system.
 
 ### Start Backend Application
 
-You should install `Django`, `Django REST Framwork` and `drf-nested-routers` yourself.
+You should install `Django`, `Django REST Framwork`, `drf-nested-routers` and `django-cors-headers` yourself.
 
 ```
 $ cd backend
@@ -26,6 +26,16 @@ $ manage.py runserver
 ```
 
 Go to `127.0.0.1:8000` to check.
+
+### Start Frontend Application
+
+```
+$ cd frontend
+$ yarn install
+$ yarn dev
+```
+
+Go to `127.0.0.1:3000` to check.
 
 ## Backend
 
@@ -73,3 +83,19 @@ Go to `127.0.0.1:8000` to check.
 - updated_at
 
 ## Frontend
+
+### Technologies
+
+- Vue.js
+- Nuxt.js
+- Vuex
+- Vue Router
+- Vuetify
+- Axios
+
+### Routers
+
+**Tasks**
+
+- `tasks`
+- `tasks/:id`
