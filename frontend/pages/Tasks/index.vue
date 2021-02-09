@@ -4,7 +4,7 @@
  * @Author: Taki Guan
  * @Date: 2021-02-06 21:50:53
  * @LastEditors: Taki Guan
- * @LastEditTime: 2021-02-08 23:22:23
+ * @LastEditTime: 2021-02-09 14:05:33
 -->
 <template>
   <v-container>
@@ -19,25 +19,51 @@
         </v-tabs>
 
         <v-text-field
+          v-model="searchValue"
           placeholder="Search..."
           append-outer-icon="mdi-magnify"
         ></v-text-field>
 
         <v-tabs-items v-model="tab">
           <v-tab-item>
-            <v-card class="ma-2">
-              <v-card-title>Next Actions</v-card-title>
-              <v-card-text>Item No.1</v-card-text>
-            </v-card>
-            <v-card class="ma-2">
-              <v-card-title>Capture</v-card-title>
-              <v-card-text>Item No.1</v-card-text>
-            </v-card>
+            <v-row class="ma-1 d-flex flex-wrap">
+              <v-card class="ma-2" width="240px">
+                <v-card-title>
+                  <v-btn text @click="tab = 1"> Next Actions </v-btn>
+                </v-card-title>
+                <v-card-text>Item No.1</v-card-text>
+              </v-card>
+              <v-card class="ma-2" width="240px">
+                <v-card-title>
+                  <v-btn text @click="tab = 2"> Capture </v-btn>
+                </v-card-title>
+                <v-card-text>Item No.1</v-card-text>
+              </v-card>
+            </v-row>
           </v-tab-item>
           <v-tab-item>
+            <v-card v-if="newTask.show" outlined>
+              <v-card-text>
+                <v-text-field
+                  ref="newTaskTitle"
+                  v-model="newTask.title"
+                  label="Title"
+                  outlined
+                ></v-text-field>
+
+                <v-textarea
+                  v-model="newTask.description"
+                  label="Description"
+                  outlined
+                />
+              </v-card-text>
+              <v-card-actions>
+                <v-btn color="success" @click="addTask">Save</v-btn>
+                <v-btn color="secondary" @click="toggleNewTask">Cancel</v-btn>
+              </v-card-actions>
+            </v-card>
             <v-card>
               <v-list dense>
-                <v-subheader>Task List</v-subheader>
                 <v-list-item-group color="primary">
                   <v-list-item v-for="(task, i) in tasks" :key="i">
                     <template #default="{ active }">
@@ -82,17 +108,14 @@
           </v-tab-item>
         </v-tabs-items>
 
-        <!-- <v-text-field
-          v-model="newTask.title"
-          label="Enter Task"
-          @keypress.enter="addTask"
-        ></v-text-field> -->
-
-        <!-- <v-textarea
-          v-model="newTask.description"
-          label="Description"
-          outlined
-        /> -->
+        <v-btn
+          class="mx-2 float-right"
+          fab
+          color="primary"
+          @click.stop="toggleNewTask"
+        >
+          <v-icon dark> mdi-plus </v-icon>
+        </v-btn>
       </v-col>
     </v-row>
   </v-container>
@@ -105,13 +128,15 @@ export default {
   data() {
     return {
       newTask: {
+        show: false,
         title: '',
         description: '',
         // TODO
         user: 1,
       },
+      searchValue: '',
       editingTask: {},
-      tab: null,
+      tab: 1,
     }
   },
 
@@ -129,9 +154,18 @@ export default {
       'deleteTask',
       'updateTask',
     ]),
+    toggleNewTask() {
+      this.newTask.show = !this.newTask.show
+      if (this.newTask.show) {
+        this.$nextTick(() => {
+          this.$refs.newTaskTitle.focus()
+        })
+      }
+    },
     addTask() {
       this.postNewTask(this.newTask)
       this.newTask = {
+        show: false,
         title: '',
         description: '',
         // TODO
