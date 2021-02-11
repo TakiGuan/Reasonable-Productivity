@@ -4,7 +4,7 @@
  * @Author: Taki Guan
  * @Date: 2021-02-06 21:50:53
  * @LastEditors: Taki Guan
- * @LastEditTime: 2021-02-09 14:05:33
+ * @LastEditTime: 2021-02-11 16:10:49
 -->
 <template>
   <v-container>
@@ -66,9 +66,12 @@
               <v-list dense>
                 <v-list-item-group color="primary">
                   <v-list-item v-for="(task, i) in tasks" :key="i">
-                    <template #default="{ active }">
+                    <template #default>
                       <v-list-item-action>
-                        <v-checkbox :input-value="active"></v-checkbox>
+                        <v-checkbox
+                          :input-value="task.completed"
+                          @click.stop="toggleChecked(task)"
+                        ></v-checkbox>
                       </v-list-item-action>
 
                       <v-list-item-content>
@@ -87,8 +90,16 @@
                             >mdi-close-circle</v-icon
                           >
                         </span>
+
                         <span v-else class="d-flex justify-space-between">
-                          {{ task.title }}
+                          <span
+                            :class="{
+                              'text--disabled text-decoration-line-through':
+                                task.completed,
+                            }"
+                          >
+                            {{ task.title }}
+                          </span>
 
                           <span>
                             <v-icon @click.stop="editTask(i)"
@@ -190,6 +201,15 @@ export default {
 
       this.updateTask(payload)
       this.cancelEdit()
+    },
+    toggleChecked(task) {
+      const payload = {
+        id: task.id,
+        task: {
+          completed: !task.completed,
+        },
+      }
+      this.updateTask(payload)
     },
   },
 }

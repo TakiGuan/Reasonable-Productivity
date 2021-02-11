@@ -4,7 +4,7 @@
  * @Author: Taki Guan
  * @Date: 2021-02-06 14:21:21
  * @LastEditors: Taki Guan
- * @LastEditTime: 2021-02-08 15:48:34
+ * @LastEditTime: 2021-02-09 10:30:43
 -->
 <template>
   <v-app dark>
@@ -13,7 +13,7 @@
       <v-spacer />
 
       <v-toolbar-items>
-        <v-btn text to="/tasks"> Tasks</v-btn>
+        <v-btn text to="/tasks">Tasks</v-btn>
         <v-btn text to="/lists">Lists</v-btn>
         <v-btn text disabled>Calendar</v-btn>
       </v-toolbar-items>
